@@ -5,17 +5,17 @@
 
 |                           | pypeliner | nextflow | toil | cromwell | snakemake | arvados |
 |---------------------------|-----------|----------|------|----------|-----------|---------|
-| Sub workflows             | y         |          |      |          |           |         |
-| run python functions      | y         |          |      |          |           |         |
-| run with docker           | y         |          |      |          |           |         |
-| run with singularity      | y         |          |      |          |           |         |
-| launch with docker        | y         |          |      |          |           |         |
-| launch with singularity   | y         |          |      |          |           |         |
-| Azure with low priority   | y         |          |      |          |           |         |
-| Azure blob storage        | y         |          |      |          |           |         |
-| AWS with spot             | y         |          |      |          |           |         |
-| AWS S3                    | y         |          |      |          |           |         |
-| WDL support               |           |          |      |          |           |         |
-| CWL support               |           |          |      |          |           |         |
-| pass objects between jobs | y         |          |      |          |           |         |
+| Sub workflows             |<font color='green'>y</font>|          |      |          |           |         |
+| run python functions      |<font color='green'>y</font>|          |      |          |           |         |
+| run with docker           |<font color='green'>y</font>|          |      |          |           |         |
+| run with singularity      |<font color='green'>y</font>|          |      |          |           |         |
+| launch with docker        |<font color='green'>y</font>|          |      |          |           |         |
+| launch with singularity   |<font color='green'>y</font>|          |      |          |           |         |
+| Azure with low priority   |<font color='green'>y</font>|          |      |          |           |         |
+| Azure blob storage        |<font color='green'>y</font>|          |      |          |           |         |
+| AWS with spot             |<font color='green'>y</font>|          |      |          |           |         |
+| AWS S3                    |<font color='green'>y</font>|          |      |          |           |         |
+| WDL support               |<font color='red'>n</font>|          |      |          |           |         |
+| CWL support               |<font color='red'>n</font>|          |      |          |           |         |
+| pass objects between jobs |<font color='green'>y</font>|          |      |          |           |         |
 | Install with?             | pip       |          |      |          |           |         |
