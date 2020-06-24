@@ -1,5 +1,16 @@
 # pypeliner-hackathon
 
+## Evaluation Criteria
+
+### General Priorities
+
+1. Wide level of community adoption
+2. Compatibility with Dockstore
+
+### Feature Priorities
+
+1. Composable pipelines
+2. Cloud support
 
 
 
