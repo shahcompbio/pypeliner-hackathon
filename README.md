@@ -5,13 +5,20 @@
 ### General Priorities
 
 1. Wide level of community adoption
-2. Compatibility with Dockstore
+2. High quality documentation
+3. Compatibility with Dockstore
+4. Existing standard workflows (eg. GATK)
 
 ### Feature Priorities
 
-1. Composable pipelines
-2. Cloud support
-
+1. Composable pipelines / subworkflows
+2. Dunamic splits / merges
+3. Support for complex objects
+4. Docker support
+5. Singularity support
+6. Cloud support
+7. Status monitoring
+8. Graph visualization
 
 
 |                           | pypeliner | nextflow | toil | cromwell | snakemake | arvados |
