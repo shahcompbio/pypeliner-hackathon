@@ -37,4 +37,4 @@
 | WDL support               |<font color='red'>n</font>|          |      |y|           |         |
 | CWL support               |<font color='red'>n</font>|          |      |y|           |         |
 | pass objects between jobs |<font color='green'>y</font>|          |      |y|           |         |
-| Install with?             | pip       |          |      |n|           |         |
+| Install with?             | pip       |          |      |java jar|           |         |
