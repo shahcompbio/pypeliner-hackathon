@@ -12,7 +12,7 @@
 ### Feature Priorities
 
 1. Composable pipelines / subworkflows
-2. Dunamic splits / merges
+2. Dynamic splits / merges
 3. Support for complex objects
 4. Docker support
 5. Singularity support
