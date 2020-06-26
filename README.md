@@ -1,5 +1,11 @@
 # pypeliner-hackathon
 
+## Goals
+
+1. Evaluate workflow systems with the goal of selecting a replacement system for DLP to allow easier distribution to other groups.
+2. Gain some experience retooling pypeliner pipelines to understand the amount of effort involved in a complete rewrite.
+3. Gain experience with deploying the various competing workflow systems on different clusters / cloud.
+
 ## Evaluation Criteria
 
 ### General Priorities
@@ -20,21 +26,25 @@
 7. Status monitoring
 8. Graph visualization
 
+### Feature Matrix
 
 |                           | pypeliner | nextflow | toil | cromwell | snakemake | arvados |
 |---------------------------|-----------|----------|------|----------|-----------|---------|
-| Sub workflows             |<font color='green'>y</font>|          |      |y|           |         |
-| Dynamic splits / merges   |<font color='green'>y</font>|          |      |y|           |         |
-| run python functions      |<font color='green'>y</font>|          |      |y|           |         |
-| run with docker           |<font color='green'>y</font>|          |      |y|           |         |
-| run with singularity      |<font color='green'>y</font>|          |      |y|           |         |
-| launch with docker        |<font color='green'>y</font>|          |      |n|           |         |
-| launch with singularity   |<font color='green'>y</font>|          |      |n|           |         |
-| Azure with low priority   |<font color='green'>y</font>|          |      |?|           |         |
-| Azure blob storage        |<font color='green'>y</font>|          |      |?|           |         |
-| AWS with spot             |<font color='green'>y</font>|          |      |?|           |         |
-| AWS S3                    |<font color='green'>y</font>|          |      |?|           |         |
-| WDL support               |<font color='red'>n</font>|          |      |y|           |         |
-| CWL support               |<font color='red'>n</font>|          |      |y|           |         |
-| pass objects between jobs |<font color='green'>y</font>|          |      |y|           |         |
-| Install with?             | pip       |          |      |java jar|           |         |
+| Sub workflows             |y          |e         |      |y         |           |         |
+| Dynamic splits / merges   |y          |y         |      |y         |           |         |
+| run python functions      |y          |n         |      |s         |           |         |
+| run with docker           |y          |y         |      |y         |           |         |
+| run with singularity      |y          |y         |      |y         |           |         |
+| launch with docker        |y          |          |      |n         |           |         |
+| launch with singularity   |y          |          |      |n         |           |         |
+| Azure with low priority   |y          |          |      |          |           |         |
+| Azure blob storage        |y          |          |      |          |           |         |
+| AWS with spot             |y          |          |      |          |           |         |
+| AWS S3                    |y          |          |      |          |           |         |
+| WDL support               |n          |n         |      |y         |           |         |
+| CWL support               |n          |n         |      |y         |           |         |
+| pass objects between jobs |y          |y         |      |y         |           |         |
+| Install with?             | pip       |          |      |java jar  |           |         |
+
+y=yes, n=no, s=sortof, e=experimental
+
