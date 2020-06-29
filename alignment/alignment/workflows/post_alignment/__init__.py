@@ -27,8 +27,6 @@ def post_alignment(
 
     picard_wgs_params = config.default_params('alignment')['picard_wgs_params']
 
-    reftype = config.refdir_data(refdir)['params']['reference_type']
-
     workflow = pypeliner.workflow.Workflow()
 
     workflow.transform(
