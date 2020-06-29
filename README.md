@@ -54,8 +54,8 @@ y=yes, n=no, s=sortof, e=experimental
 
 Prior to the hackathon we should:
 
-1. Research available options and complete the above feature matrix (above)
-2. Assemble a test dataset and pypeliner pipeline to convert to each tool
+- [ ] Research available options and complete the above feature matrix (above)
+- [x] Assemble a test dataset and pypeliner pipeline to convert to each tool
 
 ### Hackathon day
 
