@@ -40,7 +40,7 @@ docker:
 alignment --input_yaml input.yaml \
   --out_dir output --tmpdir temp --pipelinedir pipeline \
   --loglevel DEBUG --submit local \
-  --refdir ref --maxjobs 4
+  --refdir ref --maxjobs 4 \
   --context_config context.yaml
 ```
 
