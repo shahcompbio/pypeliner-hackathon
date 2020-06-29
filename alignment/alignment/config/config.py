@@ -1,6 +1,5 @@
 import os
 
-import alignment
 import yaml
 
 
@@ -151,27 +150,13 @@ def refdir_data(refdir):
 
 
 def containers(container_name):
-    version = alignment.__version__
-    # strip setuptools metadata
-    version = version.split("+")[0]
-
     docker_images = {
         'bwa': 'bwa:v0.0.1',
         'samtools': 'samtools:v0.0.1',
         'picard': 'picard:v0.0.1',
-        'wgs': 'wgs:v{}'.format(version),
-        'strelka': 'strelka:v0.0.1',
-        'mutationseq': 'mutationseq:v0.0.1',
-        'vcftools': 'vcftools:v0.0.1',
-        'snpeff': 'vcftools:v0.0.1',
-        'titan': 'titan:v0.0.2',
-        'destruct': 'destruct:v0.0.1',
-        'lumpy': 'lumpy:v0.0.1',
+        'wgs': 'wgs:v0.0.1',
         'fastqc': 'fastqc:v0.0.1',
-        'hmmcopy': 'hmmcopy:v0.0.1',
-        'circos': 'circos:v0.0.1',
         'igvtools': 'igvtools:v0.0.1',
-        'vcf2maf': 'vcf2maf:v0.0.1'
     }
 
     return docker_images[container_name]
