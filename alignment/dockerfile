@@ -12,7 +12,7 @@ RUN pip install git+https://github.com/shahcompbio/biowrappers.git@v0.2.8
 EXPOSE 80
 
 # Define environment variable
-ENV NAME wgs
+ENV NAME alignment
 
 # Run app.py when the container launches
-CMD ["wgs"]
+CMD ["alignment"]

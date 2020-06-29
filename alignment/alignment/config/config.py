@@ -154,7 +154,7 @@ def containers(container_name):
         'bwa': 'bwa:v0.0.1',
         'samtools': 'samtools:v0.0.1',
         'picard': 'picard:v0.0.1',
-        'wgs': 'wgs:v0.0.1',
+        'alignment': 'alignment:v0.0.1',
         'fastqc': 'fastqc:v0.0.1',
         'igvtools': 'igvtools:v0.0.1',
     }
