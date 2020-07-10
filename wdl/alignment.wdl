@@ -1,5 +1,8 @@
 version 1.0
 
+import "prealignment.wdl" as prealignment
+
+
 struct Fastq {
     String sample_id
     String lane_id
@@ -10,51 +13,16 @@ struct Fastq {
 
 task MergeOutputs {
     input {
-        Array[String] tomerge
+        Array[String] tomerge1
+        Array[String] tomerge2
     }
 
     command {
-        echo "${write_lines(tomerge)}"
+        echo "${write_lines(tomerge1)} ${write_lines(tomerge2)}"
     }
 
     output {
         String out = read_string(stdout())
-    }
-}
-
-
-task RunFastQC {
-    input {
-        String fastq
-    }
-
-    command {
-        echo "${fastq}"
-    }
-
-    output {
-        String out = read_string(stdout())
-    }
-}
-
-
-workflow PreAlignmentWorkflow {
-    input {
-        String fastq1
-        String fastq2
-    }
-
-    call RunFastQC as RunFastQC1 {
-        input: fastq=fastq1
-    }
-
-    call RunFastQC as RunFastQC2 {
-        input: fastq=fastq2
-    }
-
-    output {
-        String out1 = RunFastQC1.out
-        String out2 = RunFastQC2.out
     }
 }
 
@@ -65,7 +33,7 @@ workflow AlignmentWorkflow {
     }
 
     scatter (fastq in fastq_files) {
-        call PreAlignmentWorkflow {
+        call prealignment.PreAlignmentWorkflow {
             input:
                 fastq1 = fastq.fastq1,
                 fastq2 = fastq.fastq2
@@ -73,7 +41,9 @@ workflow AlignmentWorkflow {
     }
 
     call MergeOutputs {
-        input: tomerge=PreAlignmentWorkflow.out
+        input:
+            tomerge1=PreAlignmentWorkflow.out1,
+            tomerge2=PreAlignmentWorkflow.out2
     }
 
     output {
