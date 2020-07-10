@@ -1,0 +1,34 @@
+filetype bam;
+stage ALIGN_BAM(
+    in map r1,
+    in map r2,
+    in map ref,
+    out path bamfile,
+    src py "stages/align_bam",
+)
+stage SAMPLE_SETUP(
+    in path inventory,
+    out map r1,
+    out map r2,
+    out map ref,
+    src py "stages/sample_setup",
+)
+
+pipeline ALIGNMENT(
+    in path inventory,
+    out path bamfile,
+)
+{
+    call SAMPLE_SETUP(
+        inventory  = self.inventory,
+    )
+    call ALIGN_BAM(
+      r1 = SAMPLE_SETUP.r1,
+      r2 = SAMPLE_SETUP.r2,
+      ref = SAMPLE_SETUP.ref,
+    )
+    return (
+        bamfile = ALIGN_BAM.bamfile,
+    )
+}
+

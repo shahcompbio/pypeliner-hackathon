@@ -1,0 +1,9 @@
+ref: ref/Homo_sapiens.NCBI36.54.dna.chromosome.22.fa
+
+fastqs:
+  sample1:
+    r1: "data/test.r1.fastq"
+    r2: "data/test.r2.fastq"
+  sample2:
+    r1: "data/test.r1.fastq"
+    r2: "data/test.r2.fastq"

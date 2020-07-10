@@ -1,0 +1,5 @@
+@include "pipeline.mro"
+
+call ALIGNMENT(
+    inventory = "/juno/work/shah/users/grewald/HACKATHON/MARTIAN/alignment-martian/mro/samples.yaml",
+)
