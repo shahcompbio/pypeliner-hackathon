@@ -6,23 +6,23 @@ import "prealignment.wdl" as prealignment
 struct Fastq {
     String sample_id
     String lane_id
-    String fastq1
-    String fastq2
+    File fastq1
+    File fastq2
 }
 
 
 task MergeOutputs {
     input {
-        Array[String] tomerge1
-        Array[String] tomerge2
+        Array[File] tomerge1
+        Array[File] tomerge2
     }
 
     command {
-        echo "${write_lines(tomerge1)} ${write_lines(tomerge2)}"
+        cat "${sep=' ' tomerge1}" "${sep=' ' tomerge1}" > "result.txt"
     }
 
     output {
-        String out = read_string(stdout())
+        File out = "result.txt"
     }
 }
 
@@ -47,7 +47,7 @@ workflow AlignmentWorkflow {
     }
 
     output {
-        String out = MergeOutputs.out
+        File out = MergeOutputs.out
     }
 }
 

@@ -1,6 +1,6 @@
 {
     "AlignmentWorkflow.fastq_files": [
-        {"sample_id": "A", "lane_id": "30", "fastq1": "fastq1A", "fastq2": "fastq1B"}
+        {"sample_id": "A", "lane_id": "30", "fastq1": "../data/data/test.r1.fastq", "fastq2": "../data/data/test.r2.fastq"}
     ]
 }
 

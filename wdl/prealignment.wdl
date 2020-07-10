@@ -3,23 +3,27 @@ version 1.0
 
 task RunFastQC {
     input {
-        String fastq
+        File fastq
     }
 
     command {
-        echo "${fastq}"
+        head "${fastq}" > "fastqc.out"
+    }
+
+    runtime {
+        continueOnReturnCode: 0
     }
 
     output {
-        String out = read_string(stdout())
+        File out = "fastqc.out"
     }
 }
 
 
 workflow PreAlignmentWorkflow {
     input {
-        String fastq1
-        String fastq2
+        File fastq1
+        File fastq2
     }
 
     call RunFastQC as RunFastQC1 {
@@ -31,8 +35,8 @@ workflow PreAlignmentWorkflow {
     }
 
     output {
-        String out1 = RunFastQC1.out
-        String out2 = RunFastQC2.out
+        File out1 = RunFastQC1.out
+        File out2 = RunFastQC2.out
     }
 }
 
