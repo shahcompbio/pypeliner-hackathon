@@ -31,21 +31,21 @@
 
 |                           | pypeliner | nextflow | toil | cromwell | snakemake | arvados | martian |
 |---------------------------|-----------|----------|------|----------|-----------|---------|---------|
-| Sub workflows             |y          |e         |      |y         |           |         |         |
-| Dynamic splits / merges   |y          |y         |      |y         |           |         |         |
-| run python functions      |y          |n         |      |s         |           |         |         |
-| run with docker           |y          |y         |      |y         |           |         |         |
-| run with singularity      |y          |y         |      |y         |           |         |         |
-| launch with docker        |y          |          |      |n         |           |         |         |
-| launch with singularity   |y          |          |      |n         |           |         |         |
-| Azure with low priority   |y          |          |      |          |           |         |         |
-| Azure blob storage        |y          |          |      |          |           |         |         |
-| AWS with spot             |y          |          |      |          |           |         |         |
-| AWS S3                    |y          |          |      |          |           |         |         |
-| WDL support               |n          |n         |      |y         |           |         |         |
-| CWL support               |n          |n         |      |y         |           |         |         |
-| pass objects between jobs |y          |y         |      |y         |           |         |         |
-| Install with?             | pip       |          |      |java jar  |           |         |         |
+| Sub workflows             |y          |e         |      |y         |      y    |         |         |
+| Dynamic splits / merges   |y          |y         |      |y         |      s    |         |         |
+| run python functions      |y          |n         |      |s         |      y    |         |         |
+| run with docker           |y          |y         |      |y         |      s    |         |         |
+| run with singularity      |y          |y         |      |y         |      s    |         |         |
+| launch with docker        |y          |          |      |n         |      s    |         |         |
+| launch with singularity   |y          |          |      |n         |      s    |         |         |
+| Azure with low priority   |y          |          |      |          |      n    |         |         |
+| Azure blob storage        |y          |          |      |          |      n    |         |         |
+| AWS with spot             |y          |          |      |          |      n    |         |         |
+| AWS S3                    |y          |          |      |          |      n    |         |         |
+| WDL support               |n          |n         |      |y         |      n    |         |         |
+| CWL support               |n          |n         |      |y         |      n    |         |         |
+| pass objects between jobs |y          |y         |      |y         |      n    |         |         |
+| Install with?             | pip       |          |      |java jar  |conda git  |         |         |
 
 y=yes, n=no, s=sortof, e=experimental
 
