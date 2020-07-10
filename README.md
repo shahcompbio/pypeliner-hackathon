@@ -75,7 +75,6 @@ to test deployment.
 Input:
 A set of lanes and each lane comes with R1 and R2 fastq files. 
 
-simple alignment pipeline with some pre alignment and post alignment steps:
 
 #### Test Data
 
@@ -93,7 +92,10 @@ conda install -c bioconda fastqc bwa picard samtools pandas
 
 ```
 
+simple alignment pipeline with some pre alignment and post alignment steps:
+to test the subworkflow functionality: please try to make 3 sub workflows: pre alignment, alignment and post alignment.
 
+and then build a pipeline that runs these 3 subworkflows.
 
 #### pre alignment
 
