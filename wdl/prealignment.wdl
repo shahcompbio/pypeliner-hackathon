@@ -20,6 +20,24 @@ task RunFastQC {
 }
 
 
+task MakeFastQCTar {
+    input {
+#        File r1_html
+        File r1_pdf
+#        File r2_html
+        File r2_pdf
+    }
+
+    command {
+        cat "${r1_pdf}" "${r2_pdf}" > "fastqc.tar"
+    }
+
+    output {
+        File out = "fastqc.tar"
+    }
+}
+
+
 workflow PreAlignmentWorkflow {
     input {
         File fastq1
@@ -34,9 +52,12 @@ workflow PreAlignmentWorkflow {
         input: fastq=fastq2
     }
 
+    call MakeFastQCTar {
+        input: r1_pdf=RunFastQC1.out, r2_pdf=RunFastQC2.out
+    }
+
     output {
-        File out1 = RunFastQC1.out
-        File out2 = RunFastQC2.out
+        File out = MakeFastQCTar.out
     }
 }
 

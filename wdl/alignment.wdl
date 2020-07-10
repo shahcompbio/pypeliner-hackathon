@@ -13,12 +13,11 @@ struct Fastq {
 
 task MergeOutputs {
     input {
-        Array[File] tomerge1
-        Array[File] tomerge2
+        Array[File] tomerge
     }
 
     command {
-        cat "${sep=' ' tomerge1}" "${sep=' ' tomerge1}" > "result.txt"
+        cat "${sep=' ' tomerge}" > "result.txt"
     }
 
     output {
@@ -42,8 +41,7 @@ workflow AlignmentWorkflow {
 
     call MergeOutputs {
         input:
-            tomerge1=PreAlignmentWorkflow.out1,
-            tomerge2=PreAlignmentWorkflow.out2
+            tomerge=PreAlignmentWorkflow.out
     }
 
     output {
