@@ -39,7 +39,7 @@
 | launch with docker        |y          |          |      |n         |      s    |         |         |
 | launch with singularity   |y          |          |      |n         |      s    |         |         |
 | Azure with low priority   |y          |          |      |          |      n    |         |         |
-| Azure blob storage        |y          |          |      |          |      n    |         |         |
+| Azure blob storage        |y          |          |      |          |      y    |         |         |
 | AWS with spot             |y          |          |      |          |      n    |         |         |
 | AWS S3                    |y          |          |      |          |      n    |         |         |
 | WDL support               |n          |n         |      |y         |      n    |         |         |
