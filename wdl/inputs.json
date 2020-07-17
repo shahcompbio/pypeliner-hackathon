@@ -1,6 +1,14 @@
 {
     "AlignmentWorkflow.fastq_files": [
         {"sample_id": "A", "lane_id": "30", "fastq1": "../data/data/test.r1.fastq", "fastq2": "../data/data/test.r2.fastq"}
-    ]
+    ],
+    "AlignmentWorkflow.readgroup_info": {
+        "ID": "{lane_id}",
+        "PU": "{lane_id}",
+        "SM": "{sample_id}",
+        "LB": "TEST",
+        "CN": "BCCAGSC",
+        "PL": "ILLUMINA"
+    }
 }
 

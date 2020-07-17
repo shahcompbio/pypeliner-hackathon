@@ -1,6 +1,7 @@
 version 1.0
 
 import "prealignment.wdl" as prealignment
+import "bwaalignment.wdl" as bwaalignment
 
 
 struct Fastq {
@@ -29,6 +30,7 @@ task MergeOutputs {
 workflow AlignmentWorkflow {
     input {
         Array[Fastq] fastq_files
+        Object readgroup_info
     }
 
     scatter (fastq in fastq_files) {
@@ -36,6 +38,17 @@ workflow AlignmentWorkflow {
             input:
                 fastq1 = fastq.fastq1,
                 fastq2 = fastq.fastq2
+        }
+    }
+
+    scatter (fastq in fastq_files) {
+        call bwaalignment.BwaAlignmentWorkflow {
+            input:
+                fastq1 = fastq.fastq1,
+                fastq2 = fastq.fastq2,
+                readgroup_info = readgroup_info,
+                sample_id = fastq.sample_id,
+                lane_id = fastq.lane_id
         }
     }
 
@@ -48,5 +61,4 @@ workflow AlignmentWorkflow {
         File out = MergeOutputs.out
     }
 }
-
 

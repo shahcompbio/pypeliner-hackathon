@@ -1,6 +1,7 @@
 import logging
 import os
 import shutil
+import json
 
 import pypeliner
 from alignment.utils import helpers
@@ -133,6 +134,7 @@ def align_bwa_mem(
         read_1, read_2, ref_genome, aligned_bam, threads, sample_info,
         sample_id=None, lane_id=None, docker_image=None
 ):
+    sample_info = json.load(open(sample_info))
 
     if lane_id in sample_info:
         sample_info = sample_info[lane_id]

@@ -7,33 +7,27 @@ task RunFastQC {
     }
 
     command {
-        head "${fastq}" > "fastqc.out"
-    }
-
-    runtime {
-        continueOnReturnCode: 0
+        python -m fire alignment.workflows.pre_alignment.tasks run_fastqc "${fastq}" "fastqc.html" "fastqc.pdf" "./fastqtemp"
     }
 
     output {
-        File out = "fastqc.out"
+        File html = "fastqc.html"
+        File pdf = "fastqc.pdf"
     }
 }
 
 
-task MakeFastQCTar {
+task CreateTar {
     input {
-#        File r1_html
-        File r1_pdf
-#        File r2_html
-        File r2_pdf
+        Array[File] files
     }
 
     command {
-        cat "${r1_pdf}" "${r2_pdf}" > "fastqc.tar"
+        tar -cf compressed.tar ${sep=' ' files}
     }
 
     output {
-        File out = "fastqc.tar"
+        File out = "compressed.tar"
     }
 }
 
@@ -52,12 +46,18 @@ workflow PreAlignmentWorkflow {
         input: fastq=fastq2
     }
 
-    call MakeFastQCTar {
-        input: r1_pdf=RunFastQC1.out, r2_pdf=RunFastQC2.out
+    call CreateTar {
+        input:
+            files=[
+                RunFastQC1.html,
+                RunFastQC1.pdf,
+                RunFastQC2.html,
+                RunFastQC2.pdf
+            ]
     }
 
     output {
-        File out = MakeFastQCTar.out
+        File out = CreateTar.out
     }
 }
 
