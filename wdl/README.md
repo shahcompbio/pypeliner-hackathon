@@ -15,10 +15,12 @@ wdl getting started from terra: https://support.terra.bio/hc/en-us/articles/3600
 ```
 virtualenv venv
 pip install -r requirements.txt
-export PYTHONPATH=/Users/mcphera1/Projects/pypeliner-hackathon/alignment/
+export PYTHONPATH=pypeliner-hackathon/alignment/
 ```
 
-you will also need to install samtools, picard, bwa, maybe a few others
+replace `pypeliner-hackathon/alignment/` with the full path to the alignment repo.
+
+you will also need to install samtools, picard, bwa, maybe a few others.
 
 ## running the example
 
