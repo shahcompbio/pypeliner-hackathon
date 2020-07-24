@@ -59,7 +59,7 @@ def bam_index(infile, outfile, **kwargs):
         **kwargs)
 
 
-def merge_bams(inputs, output, picard_docker_image=None, samtools_docker_image=None):
+def merge_bams(output, *inputs, picard_docker_image=None, samtools_docker_image=None):
     output_index = output + '.bai'
     picard_merge_bams(inputs, output, docker_image=picard_docker_image)
     bam_index(output, output_index, docker_image=samtools_docker_image)

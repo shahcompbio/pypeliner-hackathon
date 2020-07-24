@@ -27,6 +27,22 @@ task MergeOutputs {
 }
 
 
+task BamMarkDups {
+    input {
+        File bam
+    }
+
+    command {
+        python -m fire alignment.workflows.alignment.tasks markdups ${bam} markdups.bam markdups_metrics ./temp
+    }
+
+    output {
+        File markdups = "markdups.bam"
+        File bai = "markdups.bam.bai"
+    }
+}
+
+
 workflow AlignmentWorkflow {
     input {
         Array[Fastq] fastq_files
@@ -52,13 +68,18 @@ workflow AlignmentWorkflow {
         }
     }
 
-    call MergeOutputs {
+    call bwaalignment.BamMerge {
         input:
-            tomerge=PreAlignmentWorkflow.out
+            bams = BwaAlignmentWorkflow.bam
+    }
+
+    call BamMarkDups {
+        input:
+            bam = BamMerge.merged
     }
 
     output {
-        File out = MergeOutputs.out
+        File out = BamMarkDups.markdups
     }
 }
 
